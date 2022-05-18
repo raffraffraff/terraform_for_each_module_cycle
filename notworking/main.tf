@@ -1,7 +1,3 @@
-locals {
-  iterable = toset(["item"])
-}
-
 module "one" {
   for_each = toset(["item"])
   source = "../modules/test"
