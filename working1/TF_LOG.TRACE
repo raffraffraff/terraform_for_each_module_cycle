@@ -1,0 +1,973 @@
+2022-05-18T16:29:56.188+0100 [INFO]  Terraform version: 1.1.9
+2022-05-18T16:29:56.188+0100 [INFO]  Go runtime version: go1.18.1
+2022-05-18T16:29:56.188+0100 [INFO]  CLI args: []string{"terraform", "apply", "-auto-approve"}
+2022-05-18T16:29:56.188+0100 [TRACE] Stdout is a terminal of width 165
+2022-05-18T16:29:56.188+0100 [TRACE] Stderr is not a terminal
+2022-05-18T16:29:56.188+0100 [TRACE] Stdin is a terminal
+2022-05-18T16:29:56.188+0100 [DEBUG] Attempting to open CLI config file: /Users/raff/.terraformrc
+2022-05-18T16:29:56.188+0100 [DEBUG] File doesn't exist, but doesn't need to. Ignoring.
+2022-05-18T16:29:56.188+0100 [DEBUG] ignoring non-existing provider search directory terraform.d/plugins
+2022-05-18T16:29:56.188+0100 [DEBUG] ignoring non-existing provider search directory /Users/raff/.terraform.d/plugins
+2022-05-18T16:29:56.188+0100 [DEBUG] ignoring non-existing provider search directory /Users/raff/Library/Application Support/io.terraform/plugins
+2022-05-18T16:29:56.188+0100 [DEBUG] ignoring non-existing provider search directory /Library/Application Support/io.terraform/plugins
+2022-05-18T16:29:56.188+0100 [INFO]  CLI command args: []string{"apply", "-auto-approve"}
+2022-05-18T16:29:56.188+0100 [TRACE] Meta.Backend: no config given or present on disk, so returning nil config
+2022-05-18T16:29:56.188+0100 [TRACE] Meta.Backend: backend has not previously been initialized in this working directory
+2022-05-18T16:29:56.188+0100 [DEBUG] New state was assigned lineage "057c8e3d-8bc3-f5bc-554c-1898617303a8"
+2022-05-18T16:29:56.188+0100 [TRACE] Meta.Backend: using default local state only (no backend configuration, and no existing initialized backend)
+2022-05-18T16:29:56.188+0100 [TRACE] Meta.Backend: instantiated backend of type <nil>
+2022-05-18T16:29:56.189+0100 [DEBUG] checking for provisioner in "."
+2022-05-18T16:29:56.189+0100 [DEBUG] checking for provisioner in "/opt/homebrew/bin"
+2022-05-18T16:29:56.189+0100 [TRACE] Meta.Backend: backend <nil> does not support operations, so wrapping it in a local backend
+2022-05-18T16:29:56.189+0100 [INFO]  backend/local: starting Apply operation
+2022-05-18T16:29:56.189+0100 [TRACE] backend/local: requesting state manager for workspace "default"
+2022-05-18T16:29:56.190+0100 [TRACE] backend/local: state manager for workspace "default" will:
+ - read initial snapshot from terraform.tfstate
+ - write new snapshots to terraform.tfstate
+ - create any backup at terraform.tfstate.backup
+2022-05-18T16:29:56.190+0100 [TRACE] backend/local: requesting state lock for workspace "default"
+2022-05-18T16:29:56.191+0100 [TRACE] statemgr.Filesystem: preparing to manage state snapshots at terraform.tfstate
+2022-05-18T16:29:56.191+0100 [TRACE] statemgr.Filesystem: existing snapshot has lineage "bf447c61-ecc8-44b3-069d-600cf9c73ae0" serial 4
+2022-05-18T16:29:56.191+0100 [TRACE] statemgr.Filesystem: locking terraform.tfstate using fcntl flock
+2022-05-18T16:29:56.191+0100 [TRACE] statemgr.Filesystem: writing lock metadata to .terraform.tfstate.lock.info
+2022-05-18T16:29:56.191+0100 [TRACE] backend/local: reading remote state for workspace "default"
+2022-05-18T16:29:56.191+0100 [TRACE] statemgr.Filesystem: reading latest snapshot from terraform.tfstate
+2022-05-18T16:29:56.191+0100 [TRACE] statemgr.Filesystem: read snapshot with lineage "bf447c61-ecc8-44b3-069d-600cf9c73ae0" serial 4
+2022-05-18T16:29:56.191+0100 [TRACE] backend/local: populating backend.LocalRun for current working directory
+2022-05-18T16:29:56.191+0100 [TRACE] terraform.NewContext: starting
+2022-05-18T16:29:56.191+0100 [TRACE] terraform.NewContext: complete
+2022-05-18T16:29:56.191+0100 [TRACE] backend/local: requesting interactive input, if necessary
+2022-05-18T16:29:56.191+0100 [TRACE] Context.Input: Prompting for provider arguments
+2022-05-18T16:29:56.191+0100 [TRACE] backend/local: running validation operation
+2022-05-18T16:29:56.191+0100 [DEBUG] Building and walking validate graph
+2022-05-18T16:29:56.191+0100 [TRACE] Executing graph transform *terraform.ConfigTransformer
+2022-05-18T16:29:56.191+0100 [TRACE] ConfigTransformer: Starting for path:
+2022-05-18T16:29:56.191+0100 [TRACE] ConfigTransformer: Starting for path: module.two
+2022-05-18T16:29:56.191+0100 [TRACE] ConfigTransformer: Starting for path: module.one
+2022-05-18T16:29:56.191+0100 [TRACE] Completed graph transform *terraform.ConfigTransformer (no changes)
+2022-05-18T16:29:56.191+0100 [TRACE] Executing graph transform *terraform.RootVariableTransformer
+2022-05-18T16:29:56.191+0100 [TRACE] Completed graph transform *terraform.RootVariableTransformer (no changes)
+2022-05-18T16:29:56.191+0100 [TRACE] Executing graph transform *terraform.ModuleVariableTransformer
+2022-05-18T16:29:56.191+0100 [TRACE] Completed graph transform *terraform.ModuleVariableTransformer with new graph:
+  module.one.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+  module.one.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.two.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+  module.two.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  ------
+2022-05-18T16:29:56.191+0100 [TRACE] Executing graph transform *terraform.LocalTransformer
+2022-05-18T16:29:56.191+0100 [TRACE] Completed graph transform *terraform.LocalTransformer (no changes)
+2022-05-18T16:29:56.191+0100 [TRACE] Executing graph transform *terraform.OutputTransformer
+2022-05-18T16:29:56.191+0100 [TRACE] OutputTransformer: adding output as *terraform.nodeExpandOutput
+2022-05-18T16:29:56.191+0100 [TRACE] OutputTransformer: adding output as *terraform.nodeExpandOutput
+2022-05-18T16:29:56.191+0100 [TRACE] OutputTransformer: adding one as *terraform.NodeApplyableOutput
+2022-05-18T16:29:56.191+0100 [TRACE] OutputTransformer: adding two as *terraform.NodeApplyableOutput
+2022-05-18T16:29:56.191+0100 [TRACE] Completed graph transform *terraform.OutputTransformer with new graph:
+  module.one.output.output (expand) - *terraform.nodeExpandOutput
+  module.one.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+  module.one.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.two.output.output (expand) - *terraform.nodeExpandOutput
+  module.two.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+  module.two.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  output.one - *terraform.NodeApplyableOutput
+  output.two - *terraform.NodeApplyableOutput
+  ------
+2022-05-18T16:29:56.191+0100 [TRACE] Executing graph transform *terraform.OrphanResourceInstanceTransformer
+2022-05-18T16:29:56.191+0100 [TRACE] Completed graph transform *terraform.OrphanResourceInstanceTransformer (no changes)
+2022-05-18T16:29:56.191+0100 [TRACE] Executing graph transform *terraform.StateTransformer
+2022-05-18T16:29:56.191+0100 [TRACE] StateTransformer: creating nodes for deposed instance objects only
+2022-05-18T16:29:56.192+0100 [TRACE] Completed graph transform *terraform.StateTransformer (no changes)
+2022-05-18T16:29:56.192+0100 [TRACE] Executing graph transform *terraform.AttachStateTransformer
+2022-05-18T16:29:56.192+0100 [TRACE] Completed graph transform *terraform.AttachStateTransformer (no changes)
+2022-05-18T16:29:56.192+0100 [TRACE] Executing graph transform *terraform.OrphanOutputTransformer
+2022-05-18T16:29:56.192+0100 [TRACE] Completed graph transform *terraform.OrphanOutputTransformer (no changes)
+2022-05-18T16:29:56.192+0100 [TRACE] Executing graph transform *terraform.AttachResourceConfigTransformer
+2022-05-18T16:29:56.192+0100 [TRACE] Completed graph transform *terraform.AttachResourceConfigTransformer (no changes)
+2022-05-18T16:29:56.192+0100 [TRACE] Executing graph transform *terraform.graphTransformerMulti
+2022-05-18T16:29:56.192+0100 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.ProviderConfigTransformer
+2022-05-18T16:29:56.192+0100 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.ProviderConfigTransformer with new graph:
+  module.one.output.output (expand) - *terraform.nodeExpandOutput
+  module.one.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+  module.one.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.two.output.output (expand) - *terraform.nodeExpandOutput
+  module.two.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+  module.two.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  output.one - *terraform.NodeApplyableOutput
+  output.two - *terraform.NodeApplyableOutput
+  ------
+2022-05-18T16:29:56.192+0100 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.MissingProviderTransformer
+2022-05-18T16:29:56.192+0100 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.MissingProviderTransformer (no changes)
+2022-05-18T16:29:56.192+0100 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.ProviderTransformer
+2022-05-18T16:29:56.192+0100 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.ProviderTransformer (no changes)
+2022-05-18T16:29:56.192+0100 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.PruneProviderTransformer
+2022-05-18T16:29:56.192+0100 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.PruneProviderTransformer (no changes)
+2022-05-18T16:29:56.192+0100 [TRACE] Completed graph transform *terraform.graphTransformerMulti (no changes)
+2022-05-18T16:29:56.192+0100 [TRACE] Executing graph transform *terraform.RemovedModuleTransformer
+2022-05-18T16:29:56.192+0100 [TRACE] Completed graph transform *terraform.RemovedModuleTransformer (no changes)
+2022-05-18T16:29:56.192+0100 [TRACE] Executing graph transform *terraform.AttachSchemaTransformer
+2022-05-18T16:29:56.192+0100 [TRACE] Completed graph transform *terraform.AttachSchemaTransformer (no changes)
+2022-05-18T16:29:56.192+0100 [TRACE] Executing graph transform *terraform.ModuleExpansionTransformer
+2022-05-18T16:29:56.192+0100 [TRACE] ModuleExpansionTransformer: Added module.one as *terraform.nodeValidateModule
+2022-05-18T16:29:56.192+0100 [TRACE] ModuleExpansionTransformer: module.one (close) must wait for expansion of module.one
+2022-05-18T16:29:56.192+0100 [TRACE] ModuleExpansionTransformer: module.one.output.output (expand) must wait for expansion of module.one
+2022-05-18T16:29:56.192+0100 [TRACE] ModuleExpansionTransformer: module.one.var.input2 (expand) must wait for expansion of module.one
+2022-05-18T16:29:56.192+0100 [TRACE] ModuleExpansionTransformer: module.one.var.input1 (expand) must wait for expansion of module.one
+2022-05-18T16:29:56.192+0100 [TRACE] ModuleExpansionTransformer: Added module.two as *terraform.nodeValidateModule
+2022-05-18T16:29:56.192+0100 [TRACE] ModuleExpansionTransformer: module.two.var.input2 (expand) must wait for expansion of module.two
+2022-05-18T16:29:56.192+0100 [TRACE] ModuleExpansionTransformer: module.two.output.output (expand) must wait for expansion of module.two
+2022-05-18T16:29:56.192+0100 [TRACE] ModuleExpansionTransformer: module.two (close) must wait for expansion of module.two
+2022-05-18T16:29:56.192+0100 [TRACE] ModuleExpansionTransformer: module.two.var.input1 (expand) must wait for expansion of module.two
+2022-05-18T16:29:56.192+0100 [TRACE] Completed graph transform *terraform.ModuleExpansionTransformer with new graph:
+  module.one (close) - *terraform.nodeCloseModule
+    module.one (expand) - *terraform.nodeValidateModule
+    module.one.output.output (expand) - *terraform.nodeExpandOutput
+    module.one.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+    module.one.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.one (expand) - *terraform.nodeValidateModule
+  module.one.output.output (expand) - *terraform.nodeExpandOutput
+    module.one (expand) - *terraform.nodeValidateModule
+  module.one.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+    module.one (expand) - *terraform.nodeValidateModule
+  module.one.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+    module.one (expand) - *terraform.nodeValidateModule
+  module.two (close) - *terraform.nodeCloseModule
+    module.two (expand) - *terraform.nodeValidateModule
+    module.two.output.output (expand) - *terraform.nodeExpandOutput
+    module.two.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+    module.two.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.two (expand) - *terraform.nodeValidateModule
+  module.two.output.output (expand) - *terraform.nodeExpandOutput
+    module.two (expand) - *terraform.nodeValidateModule
+  module.two.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+    module.two (expand) - *terraform.nodeValidateModule
+  module.two.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+    module.two (expand) - *terraform.nodeValidateModule
+  output.one - *terraform.NodeApplyableOutput
+  output.two - *terraform.NodeApplyableOutput
+  ------
+2022-05-18T16:29:56.192+0100 [TRACE] Executing graph transform *terraform.ReferenceTransformer
+2022-05-18T16:29:56.192+0100 [DEBUG] ReferenceTransformer: "module.two (close)" references: []
+2022-05-18T16:29:56.192+0100 [DEBUG] ReferenceTransformer: "module.one.var.input2 (expand)" references: []
+2022-05-18T16:29:56.192+0100 [DEBUG] ReferenceTransformer: "module.one.var.input1 (expand)" references: [module.two.output.output (expand)]
+2022-05-18T16:29:56.192+0100 [DEBUG] ReferenceTransformer: "module.two.var.input1 (expand)" references: [module.one.output.output (expand)]
+2022-05-18T16:29:56.192+0100 [DEBUG] ReferenceTransformer: "module.two (expand)" references: []
+2022-05-18T16:29:56.192+0100 [DEBUG] ReferenceTransformer: "output.two" references: [module.two.output.output (expand)]
+2022-05-18T16:29:56.192+0100 [DEBUG] ReferenceTransformer: "module.one (expand)" references: []
+2022-05-18T16:29:56.192+0100 [DEBUG] ReferenceTransformer: "module.one (close)" references: []
+2022-05-18T16:29:56.192+0100 [DEBUG] ReferenceTransformer: "module.two.var.input2 (expand)" references: []
+2022-05-18T16:29:56.192+0100 [DEBUG] ReferenceTransformer: "module.one.output.output (expand)" references: [module.one.var.input2 (expand)]
+2022-05-18T16:29:56.192+0100 [DEBUG] ReferenceTransformer: "module.two.output.output (expand)" references: [module.two.var.input2 (expand)]
+2022-05-18T16:29:56.192+0100 [DEBUG] ReferenceTransformer: "output.one" references: [module.one.output.output (expand)]
+2022-05-18T16:29:56.192+0100 [TRACE] Completed graph transform *terraform.ReferenceTransformer with new graph:
+  module.one (close) - *terraform.nodeCloseModule
+    module.one (expand) - *terraform.nodeValidateModule
+    module.one.output.output (expand) - *terraform.nodeExpandOutput
+    module.one.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+    module.one.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.one (expand) - *terraform.nodeValidateModule
+  module.one.output.output (expand) - *terraform.nodeExpandOutput
+    module.one (expand) - *terraform.nodeValidateModule
+    module.one.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.one.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+    module.one (expand) - *terraform.nodeValidateModule
+    module.two.output.output (expand) - *terraform.nodeExpandOutput
+  module.one.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+    module.one (expand) - *terraform.nodeValidateModule
+  module.two (close) - *terraform.nodeCloseModule
+    module.two (expand) - *terraform.nodeValidateModule
+    module.two.output.output (expand) - *terraform.nodeExpandOutput
+    module.two.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+    module.two.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.two (expand) - *terraform.nodeValidateModule
+  module.two.output.output (expand) - *terraform.nodeExpandOutput
+    module.two (expand) - *terraform.nodeValidateModule
+    module.two.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.two.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+    module.one.output.output (expand) - *terraform.nodeExpandOutput
+    module.two (expand) - *terraform.nodeValidateModule
+  module.two.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+    module.two (expand) - *terraform.nodeValidateModule
+  output.one - *terraform.NodeApplyableOutput
+    module.one.output.output (expand) - *terraform.nodeExpandOutput
+  output.two - *terraform.NodeApplyableOutput
+    module.two.output.output (expand) - *terraform.nodeExpandOutput
+  ------
+2022-05-18T16:29:56.192+0100 [TRACE] Executing graph transform *terraform.AttachDependenciesTransformer
+2022-05-18T16:29:56.192+0100 [TRACE] Completed graph transform *terraform.AttachDependenciesTransformer (no changes)
+2022-05-18T16:29:56.192+0100 [TRACE] Executing graph transform *terraform.attachDataResourceDependsOnTransformer
+2022-05-18T16:29:56.192+0100 [TRACE] Completed graph transform *terraform.attachDataResourceDependsOnTransformer (no changes)
+2022-05-18T16:29:56.192+0100 [TRACE] Executing graph transform *terraform.TargetsTransformer
+2022-05-18T16:29:56.192+0100 [TRACE] Completed graph transform *terraform.TargetsTransformer (no changes)
+2022-05-18T16:29:56.192+0100 [TRACE] Executing graph transform *terraform.ForcedCBDTransformer
+2022-05-18T16:29:56.192+0100 [TRACE] Completed graph transform *terraform.ForcedCBDTransformer (no changes)
+2022-05-18T16:29:56.192+0100 [TRACE] Executing graph transform *terraform.CloseProviderTransformer
+2022-05-18T16:29:56.192+0100 [TRACE] Completed graph transform *terraform.CloseProviderTransformer (no changes)
+2022-05-18T16:29:56.192+0100 [TRACE] Executing graph transform *terraform.CloseRootModuleTransformer
+2022-05-18T16:29:56.192+0100 [TRACE] Completed graph transform *terraform.CloseRootModuleTransformer with new graph:
+  module.one (close) - *terraform.nodeCloseModule
+    module.one (expand) - *terraform.nodeValidateModule
+    module.one.output.output (expand) - *terraform.nodeExpandOutput
+    module.one.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+    module.one.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.one (expand) - *terraform.nodeValidateModule
+  module.one.output.output (expand) - *terraform.nodeExpandOutput
+    module.one (expand) - *terraform.nodeValidateModule
+    module.one.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.one.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+    module.one (expand) - *terraform.nodeValidateModule
+    module.two.output.output (expand) - *terraform.nodeExpandOutput
+  module.one.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+    module.one (expand) - *terraform.nodeValidateModule
+  module.two (close) - *terraform.nodeCloseModule
+    module.two (expand) - *terraform.nodeValidateModule
+    module.two.output.output (expand) - *terraform.nodeExpandOutput
+    module.two.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+    module.two.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.two (expand) - *terraform.nodeValidateModule
+  module.two.output.output (expand) - *terraform.nodeExpandOutput
+    module.two (expand) - *terraform.nodeValidateModule
+    module.two.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.two.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+    module.one.output.output (expand) - *terraform.nodeExpandOutput
+    module.two (expand) - *terraform.nodeValidateModule
+  module.two.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+    module.two (expand) - *terraform.nodeValidateModule
+  output.one - *terraform.NodeApplyableOutput
+    module.one.output.output (expand) - *terraform.nodeExpandOutput
+  output.two - *terraform.NodeApplyableOutput
+    module.two.output.output (expand) - *terraform.nodeExpandOutput
+  root - *terraform.nodeCloseModule
+    module.one (close) - *terraform.nodeCloseModule
+    module.two (close) - *terraform.nodeCloseModule
+    output.one - *terraform.NodeApplyableOutput
+    output.two - *terraform.NodeApplyableOutput
+  ------
+2022-05-18T16:29:56.192+0100 [TRACE] Executing graph transform *terraform.TransitiveReductionTransformer
+2022-05-18T16:29:56.192+0100 [TRACE] Completed graph transform *terraform.TransitiveReductionTransformer with new graph:
+  module.one (close) - *terraform.nodeCloseModule
+    module.one.output.output (expand) - *terraform.nodeExpandOutput
+    module.one.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+  module.one (expand) - *terraform.nodeValidateModule
+  module.one.output.output (expand) - *terraform.nodeExpandOutput
+    module.one.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.one.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+    module.one (expand) - *terraform.nodeValidateModule
+    module.two.output.output (expand) - *terraform.nodeExpandOutput
+  module.one.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+    module.one (expand) - *terraform.nodeValidateModule
+  module.two (close) - *terraform.nodeCloseModule
+    module.two.output.output (expand) - *terraform.nodeExpandOutput
+    module.two.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+  module.two (expand) - *terraform.nodeValidateModule
+  module.two.output.output (expand) - *terraform.nodeExpandOutput
+    module.two.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.two.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+    module.one.output.output (expand) - *terraform.nodeExpandOutput
+    module.two (expand) - *terraform.nodeValidateModule
+  module.two.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+    module.two (expand) - *terraform.nodeValidateModule
+  output.one - *terraform.NodeApplyableOutput
+    module.one.output.output (expand) - *terraform.nodeExpandOutput
+  output.two - *terraform.NodeApplyableOutput
+    module.two.output.output (expand) - *terraform.nodeExpandOutput
+  root - *terraform.nodeCloseModule
+    module.one (close) - *terraform.nodeCloseModule
+    module.two (close) - *terraform.nodeCloseModule
+    output.one - *terraform.NodeApplyableOutput
+    output.two - *terraform.NodeApplyableOutput
+  ------
+2022-05-18T16:29:56.192+0100 [DEBUG] Starting graph walk: walkValidate
+2022-05-18T16:29:56.192+0100 [TRACE] vertex "module.two (expand)": starting visit (*terraform.nodeValidateModule)
+2022-05-18T16:29:56.192+0100 [TRACE] vertex "module.two (expand)": visit complete
+2022-05-18T16:29:56.192+0100 [TRACE] vertex "module.one (expand)": starting visit (*terraform.nodeValidateModule)
+2022-05-18T16:29:56.192+0100 [TRACE] vertex "module.two.var.input2 (expand)": starting visit (*terraform.nodeExpandModuleVariable)
+2022-05-18T16:29:56.192+0100 [TRACE] vertex "module.two.var.input2 (expand)": expanding dynamic subgraph
+2022-05-18T16:29:56.192+0100 [TRACE] vertex "module.two.var.input2 (expand)": entering dynamic subgraph
+2022-05-18T16:29:56.192+0100 [TRACE] vertex "module.one (expand)": visit complete
+2022-05-18T16:29:56.192+0100 [TRACE] vertex "module.one.var.input2 (expand)": starting visit (*terraform.nodeExpandModuleVariable)
+2022-05-18T16:29:56.192+0100 [TRACE] vertex "module.one.var.input2 (expand)": expanding dynamic subgraph
+2022-05-18T16:29:56.192+0100 [TRACE] vertex "module.two.var.input2": starting visit (*terraform.nodeModuleVariable)
+2022-05-18T16:29:56.192+0100 [TRACE] vertex "module.one.var.input2 (expand)": entering dynamic subgraph
+2022-05-18T16:29:56.192+0100 [TRACE] vertex "module.one.var.input2": starting visit (*terraform.nodeModuleVariable)
+2022-05-18T16:29:56.192+0100 [TRACE] evalVariableValidations: not active for module.two.var.input2, so skipping
+2022-05-18T16:29:56.192+0100 [TRACE] vertex "module.two.var.input2": visit complete
+2022-05-18T16:29:56.192+0100 [TRACE] vertex "module.two.var.input2 (expand)": dynamic subgraph completed successfully
+2022-05-18T16:29:56.192+0100 [TRACE] vertex "module.two.var.input2 (expand)": visit complete
+2022-05-18T16:29:56.192+0100 [TRACE] evalVariableValidations: not active for module.one.var.input2, so skipping
+2022-05-18T16:29:56.192+0100 [TRACE] vertex "module.one.var.input2": visit complete
+2022-05-18T16:29:56.192+0100 [TRACE] vertex "module.one.var.input2 (expand)": dynamic subgraph completed successfully
+2022-05-18T16:29:56.192+0100 [TRACE] vertex "module.one.var.input2 (expand)": visit complete
+2022-05-18T16:29:56.192+0100 [TRACE] vertex "module.two.output.output (expand)": starting visit (*terraform.nodeExpandOutput)
+2022-05-18T16:29:56.192+0100 [TRACE] vertex "module.two.output.output (expand)": expanding dynamic subgraph
+2022-05-18T16:29:56.192+0100 [TRACE] Expanding output: adding module.two.output.output as *terraform.NodeApplyableOutput
+2022-05-18T16:29:56.192+0100 [TRACE] vertex "module.two.output.output (expand)": entering dynamic subgraph
+2022-05-18T16:29:56.192+0100 [TRACE] vertex "module.two.output.output": starting visit (*terraform.NodeApplyableOutput)
+2022-05-18T16:29:56.192+0100 [TRACE] vertex "module.one.output.output (expand)": starting visit (*terraform.nodeExpandOutput)
+2022-05-18T16:29:56.192+0100 [TRACE] vertex "module.one.output.output (expand)": expanding dynamic subgraph
+2022-05-18T16:29:56.192+0100 [TRACE] Expanding output: adding module.one.output.output as *terraform.NodeApplyableOutput
+2022-05-18T16:29:56.192+0100 [TRACE] vertex "module.one.output.output (expand)": entering dynamic subgraph
+2022-05-18T16:29:56.192+0100 [TRACE] vertex "module.one.output.output": starting visit (*terraform.NodeApplyableOutput)
+2022-05-18T16:29:56.192+0100 [TRACE] setValue: Saving Create change for module.two.output.output in changeset
+2022-05-18T16:29:56.192+0100 [TRACE] setValue: Removing module.two.output.output from state (it is now null)
+2022-05-18T16:29:56.192+0100 [TRACE] vertex "module.two.output.output": visit complete
+2022-05-18T16:29:56.192+0100 [TRACE] vertex "module.two.output.output (expand)": dynamic subgraph completed successfully
+2022-05-18T16:29:56.192+0100 [TRACE] vertex "module.two.output.output (expand)": visit complete
+2022-05-18T16:29:56.192+0100 [TRACE] setValue: Saving Create change for module.one.output.output in changeset
+2022-05-18T16:29:56.192+0100 [TRACE] vertex "output.two": starting visit (*terraform.NodeApplyableOutput)
+2022-05-18T16:29:56.193+0100 [TRACE] setValue: Removing module.one.output.output from state (it is now null)
+2022-05-18T16:29:56.193+0100 [TRACE] vertex "module.one.output.output": visit complete
+2022-05-18T16:29:56.193+0100 [TRACE] vertex "module.one.output.output (expand)": dynamic subgraph completed successfully
+2022-05-18T16:29:56.193+0100 [TRACE] vertex "module.one.output.output (expand)": visit complete
+2022-05-18T16:29:56.193+0100 [TRACE] vertex "module.one.var.input1 (expand)": starting visit (*terraform.nodeExpandModuleVariable)
+2022-05-18T16:29:56.193+0100 [TRACE] vertex "module.two.var.input1 (expand)": starting visit (*terraform.nodeExpandModuleVariable)
+2022-05-18T16:29:56.193+0100 [TRACE] vertex "module.two.var.input1 (expand)": expanding dynamic subgraph
+2022-05-18T16:29:56.193+0100 [TRACE] vertex "module.two.var.input1 (expand)": entering dynamic subgraph
+2022-05-18T16:29:56.193+0100 [TRACE] vertex "module.two.var.input1": starting visit (*terraform.nodeModuleVariable)
+2022-05-18T16:29:56.193+0100 [TRACE] vertex "module.one.var.input1 (expand)": expanding dynamic subgraph
+2022-05-18T16:29:56.193+0100 [TRACE] vertex "module.one.var.input1 (expand)": entering dynamic subgraph
+2022-05-18T16:29:56.193+0100 [TRACE] setValue: Saving Create change for output.two in changeset
+2022-05-18T16:29:56.193+0100 [TRACE] setValue: Removing output.two from state (it is now null)
+2022-05-18T16:29:56.193+0100 [TRACE] vertex "output.two": visit complete
+2022-05-18T16:29:56.193+0100 [TRACE] vertex "output.one": starting visit (*terraform.NodeApplyableOutput)
+2022-05-18T16:29:56.193+0100 [TRACE] vertex "module.one.var.input1": starting visit (*terraform.nodeModuleVariable)
+2022-05-18T16:29:56.193+0100 [TRACE] evalVariableValidations: not active for module.two.var.input1, so skipping
+2022-05-18T16:29:56.193+0100 [TRACE] vertex "module.two.var.input1": visit complete
+2022-05-18T16:29:56.193+0100 [TRACE] setValue: Saving Create change for output.one in changeset
+2022-05-18T16:29:56.193+0100 [TRACE] setValue: Removing output.one from state (it is now null)
+2022-05-18T16:29:56.193+0100 [TRACE] vertex "output.one": visit complete
+2022-05-18T16:29:56.193+0100 [TRACE] vertex "module.two.var.input1 (expand)": dynamic subgraph completed successfully
+2022-05-18T16:29:56.193+0100 [TRACE] vertex "module.two.var.input1 (expand)": visit complete
+2022-05-18T16:29:56.193+0100 [TRACE] vertex "module.two (close)": starting visit (*terraform.nodeCloseModule)
+2022-05-18T16:29:56.193+0100 [TRACE] vertex "module.two (close)": visit complete
+2022-05-18T16:29:56.193+0100 [TRACE] evalVariableValidations: not active for module.one.var.input1, so skipping
+2022-05-18T16:29:56.193+0100 [TRACE] vertex "module.one.var.input1": visit complete
+2022-05-18T16:29:56.193+0100 [TRACE] vertex "module.one.var.input1 (expand)": dynamic subgraph completed successfully
+2022-05-18T16:29:56.193+0100 [TRACE] vertex "module.one.var.input1 (expand)": visit complete
+2022-05-18T16:29:56.193+0100 [TRACE] vertex "module.one (close)": starting visit (*terraform.nodeCloseModule)
+2022-05-18T16:29:56.193+0100 [TRACE] vertex "module.one (close)": visit complete
+2022-05-18T16:29:56.193+0100 [TRACE] vertex "root": starting visit (*terraform.nodeCloseModule)
+2022-05-18T16:29:56.193+0100 [TRACE] vertex "root": visit complete
+2022-05-18T16:29:56.193+0100 [INFO]  backend/local: apply calling Plan
+2022-05-18T16:29:56.193+0100 [DEBUG] Building and walking plan graph for NormalMode
+2022-05-18T16:29:56.193+0100 [TRACE] Executing graph transform *terraform.ConfigTransformer
+2022-05-18T16:29:56.193+0100 [TRACE] ConfigTransformer: Starting for path:
+2022-05-18T16:29:56.193+0100 [TRACE] ConfigTransformer: Starting for path: module.one
+2022-05-18T16:29:56.193+0100 [TRACE] ConfigTransformer: Starting for path: module.two
+2022-05-18T16:29:56.193+0100 [TRACE] Completed graph transform *terraform.ConfigTransformer (no changes)
+2022-05-18T16:29:56.193+0100 [TRACE] Executing graph transform *terraform.RootVariableTransformer
+2022-05-18T16:29:56.193+0100 [TRACE] Completed graph transform *terraform.RootVariableTransformer (no changes)
+2022-05-18T16:29:56.193+0100 [TRACE] Executing graph transform *terraform.ModuleVariableTransformer
+2022-05-18T16:29:56.193+0100 [TRACE] Completed graph transform *terraform.ModuleVariableTransformer with new graph:
+  module.one.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+  module.one.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.two.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+  module.two.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  ------
+2022-05-18T16:29:56.193+0100 [TRACE] Executing graph transform *terraform.LocalTransformer
+2022-05-18T16:29:56.193+0100 [TRACE] Completed graph transform *terraform.LocalTransformer (no changes)
+2022-05-18T16:29:56.193+0100 [TRACE] Executing graph transform *terraform.OutputTransformer
+2022-05-18T16:29:56.193+0100 [TRACE] OutputTransformer: adding output as *terraform.nodeExpandOutput
+2022-05-18T16:29:56.193+0100 [TRACE] OutputTransformer: adding output as *terraform.nodeExpandOutput
+2022-05-18T16:29:56.193+0100 [TRACE] OutputTransformer: adding two as *terraform.NodeApplyableOutput
+2022-05-18T16:29:56.193+0100 [TRACE] OutputTransformer: adding one as *terraform.NodeApplyableOutput
+2022-05-18T16:29:56.193+0100 [TRACE] Completed graph transform *terraform.OutputTransformer with new graph:
+  module.one.output.output (expand) - *terraform.nodeExpandOutput
+  module.one.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+  module.one.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.two.output.output (expand) - *terraform.nodeExpandOutput
+  module.two.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+  module.two.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  output.one - *terraform.NodeApplyableOutput
+  output.two - *terraform.NodeApplyableOutput
+  ------
+2022-05-18T16:29:56.193+0100 [TRACE] Executing graph transform *terraform.OrphanResourceInstanceTransformer
+2022-05-18T16:29:56.193+0100 [TRACE] Completed graph transform *terraform.OrphanResourceInstanceTransformer (no changes)
+2022-05-18T16:29:56.193+0100 [TRACE] Executing graph transform *terraform.StateTransformer
+2022-05-18T16:29:56.193+0100 [TRACE] StateTransformer: creating nodes for deposed instance objects only
+2022-05-18T16:29:56.193+0100 [TRACE] Completed graph transform *terraform.StateTransformer (no changes)
+2022-05-18T16:29:56.193+0100 [TRACE] Executing graph transform *terraform.AttachStateTransformer
+2022-05-18T16:29:56.193+0100 [TRACE] Completed graph transform *terraform.AttachStateTransformer (no changes)
+2022-05-18T16:29:56.193+0100 [TRACE] Executing graph transform *terraform.OrphanOutputTransformer
+2022-05-18T16:29:56.193+0100 [TRACE] Completed graph transform *terraform.OrphanOutputTransformer (no changes)
+2022-05-18T16:29:56.193+0100 [TRACE] Executing graph transform *terraform.AttachResourceConfigTransformer
+2022-05-18T16:29:56.193+0100 [TRACE] Completed graph transform *terraform.AttachResourceConfigTransformer (no changes)
+2022-05-18T16:29:56.193+0100 [TRACE] Executing graph transform *terraform.graphTransformerMulti
+2022-05-18T16:29:56.193+0100 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.ProviderConfigTransformer
+2022-05-18T16:29:56.193+0100 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.ProviderConfigTransformer with new graph:
+  module.one.output.output (expand) - *terraform.nodeExpandOutput
+  module.one.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+  module.one.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.two.output.output (expand) - *terraform.nodeExpandOutput
+  module.two.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+  module.two.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  output.one - *terraform.NodeApplyableOutput
+  output.two - *terraform.NodeApplyableOutput
+  ------
+2022-05-18T16:29:56.193+0100 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.MissingProviderTransformer
+2022-05-18T16:29:56.193+0100 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.MissingProviderTransformer (no changes)
+2022-05-18T16:29:56.193+0100 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.ProviderTransformer
+2022-05-18T16:29:56.193+0100 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.ProviderTransformer (no changes)
+2022-05-18T16:29:56.193+0100 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.PruneProviderTransformer
+2022-05-18T16:29:56.193+0100 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.PruneProviderTransformer (no changes)
+2022-05-18T16:29:56.193+0100 [TRACE] Completed graph transform *terraform.graphTransformerMulti (no changes)
+2022-05-18T16:29:56.193+0100 [TRACE] Executing graph transform *terraform.RemovedModuleTransformer
+2022-05-18T16:29:56.193+0100 [TRACE] Completed graph transform *terraform.RemovedModuleTransformer (no changes)
+2022-05-18T16:29:56.193+0100 [TRACE] Executing graph transform *terraform.AttachSchemaTransformer
+2022-05-18T16:29:56.193+0100 [TRACE] Completed graph transform *terraform.AttachSchemaTransformer (no changes)
+2022-05-18T16:29:56.193+0100 [TRACE] Executing graph transform *terraform.ModuleExpansionTransformer
+2022-05-18T16:29:56.193+0100 [TRACE] ModuleExpansionTransformer: Added module.one as *terraform.nodeExpandModule
+2022-05-18T16:29:56.193+0100 [TRACE] ModuleExpansionTransformer: module.one (close) must wait for expansion of module.one
+2022-05-18T16:29:56.193+0100 [TRACE] ModuleExpansionTransformer: module.one.var.input1 (expand) must wait for expansion of module.one
+2022-05-18T16:29:56.193+0100 [TRACE] ModuleExpansionTransformer: module.one.var.input2 (expand) must wait for expansion of module.one
+2022-05-18T16:29:56.193+0100 [TRACE] ModuleExpansionTransformer: module.one.output.output (expand) must wait for expansion of module.one
+2022-05-18T16:29:56.193+0100 [TRACE] ModuleExpansionTransformer: Added module.two as *terraform.nodeExpandModule
+2022-05-18T16:29:56.193+0100 [TRACE] ModuleExpansionTransformer: module.two.output.output (expand) must wait for expansion of module.two
+2022-05-18T16:29:56.193+0100 [TRACE] ModuleExpansionTransformer: module.two (close) must wait for expansion of module.two
+2022-05-18T16:29:56.193+0100 [TRACE] ModuleExpansionTransformer: module.two.var.input1 (expand) must wait for expansion of module.two
+2022-05-18T16:29:56.193+0100 [TRACE] ModuleExpansionTransformer: module.two.var.input2 (expand) must wait for expansion of module.two
+2022-05-18T16:29:56.193+0100 [TRACE] Completed graph transform *terraform.ModuleExpansionTransformer with new graph:
+  module.one (close) - *terraform.nodeCloseModule
+    module.one (expand) - *terraform.nodeExpandModule
+    module.one.output.output (expand) - *terraform.nodeExpandOutput
+    module.one.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+    module.one.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.one (expand) - *terraform.nodeExpandModule
+  module.one.output.output (expand) - *terraform.nodeExpandOutput
+    module.one (expand) - *terraform.nodeExpandModule
+  module.one.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+    module.one (expand) - *terraform.nodeExpandModule
+  module.one.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+    module.one (expand) - *terraform.nodeExpandModule
+  module.two (close) - *terraform.nodeCloseModule
+    module.two (expand) - *terraform.nodeExpandModule
+    module.two.output.output (expand) - *terraform.nodeExpandOutput
+    module.two.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+    module.two.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.two (expand) - *terraform.nodeExpandModule
+  module.two.output.output (expand) - *terraform.nodeExpandOutput
+    module.two (expand) - *terraform.nodeExpandModule
+  module.two.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+    module.two (expand) - *terraform.nodeExpandModule
+  module.two.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+    module.two (expand) - *terraform.nodeExpandModule
+  output.one - *terraform.NodeApplyableOutput
+  output.two - *terraform.NodeApplyableOutput
+  ------
+2022-05-18T16:29:56.193+0100 [TRACE] Executing graph transform *terraform.ReferenceTransformer
+2022-05-18T16:29:56.193+0100 [DEBUG] ReferenceTransformer: "module.one (close)" references: []
+2022-05-18T16:29:56.193+0100 [DEBUG] ReferenceTransformer: "module.two (expand)" references: []
+2022-05-18T16:29:56.193+0100 [DEBUG] ReferenceTransformer: "output.one" references: [module.one.output.output (expand)]
+2022-05-18T16:29:56.193+0100 [DEBUG] ReferenceTransformer: "module.one (expand)" references: []
+2022-05-18T16:29:56.193+0100 [DEBUG] ReferenceTransformer: "module.two.var.input1 (expand)" references: [module.one.output.output (expand)]
+2022-05-18T16:29:56.193+0100 [DEBUG] ReferenceTransformer: "module.two.var.input2 (expand)" references: []
+2022-05-18T16:29:56.193+0100 [DEBUG] ReferenceTransformer: "module.one.output.output (expand)" references: [module.one.var.input2 (expand)]
+2022-05-18T16:29:56.193+0100 [DEBUG] ReferenceTransformer: "module.two.output.output (expand)" references: [module.two.var.input2 (expand)]
+2022-05-18T16:29:56.193+0100 [DEBUG] ReferenceTransformer: "output.two" references: [module.two.output.output (expand)]
+2022-05-18T16:29:56.193+0100 [DEBUG] ReferenceTransformer: "module.two (close)" references: []
+2022-05-18T16:29:56.193+0100 [DEBUG] ReferenceTransformer: "module.one.var.input1 (expand)" references: [module.two.output.output (expand)]
+2022-05-18T16:29:56.193+0100 [DEBUG] ReferenceTransformer: "module.one.var.input2 (expand)" references: []
+2022-05-18T16:29:56.193+0100 [TRACE] Completed graph transform *terraform.ReferenceTransformer with new graph:
+  module.one (close) - *terraform.nodeCloseModule
+    module.one (expand) - *terraform.nodeExpandModule
+    module.one.output.output (expand) - *terraform.nodeExpandOutput
+    module.one.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+    module.one.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.one (expand) - *terraform.nodeExpandModule
+  module.one.output.output (expand) - *terraform.nodeExpandOutput
+    module.one (expand) - *terraform.nodeExpandModule
+    module.one.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.one.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+    module.one (expand) - *terraform.nodeExpandModule
+    module.two.output.output (expand) - *terraform.nodeExpandOutput
+  module.one.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+    module.one (expand) - *terraform.nodeExpandModule
+  module.two (close) - *terraform.nodeCloseModule
+    module.two (expand) - *terraform.nodeExpandModule
+    module.two.output.output (expand) - *terraform.nodeExpandOutput
+    module.two.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+    module.two.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.two (expand) - *terraform.nodeExpandModule
+  module.two.output.output (expand) - *terraform.nodeExpandOutput
+    module.two (expand) - *terraform.nodeExpandModule
+    module.two.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.two.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+    module.one.output.output (expand) - *terraform.nodeExpandOutput
+    module.two (expand) - *terraform.nodeExpandModule
+  module.two.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+    module.two (expand) - *terraform.nodeExpandModule
+  output.one - *terraform.NodeApplyableOutput
+    module.one.output.output (expand) - *terraform.nodeExpandOutput
+  output.two - *terraform.NodeApplyableOutput
+    module.two.output.output (expand) - *terraform.nodeExpandOutput
+  ------
+2022-05-18T16:29:56.193+0100 [TRACE] Executing graph transform *terraform.AttachDependenciesTransformer
+2022-05-18T16:29:56.193+0100 [TRACE] Completed graph transform *terraform.AttachDependenciesTransformer (no changes)
+2022-05-18T16:29:56.193+0100 [TRACE] Executing graph transform *terraform.attachDataResourceDependsOnTransformer
+2022-05-18T16:29:56.193+0100 [TRACE] Completed graph transform *terraform.attachDataResourceDependsOnTransformer (no changes)
+2022-05-18T16:29:56.193+0100 [TRACE] Executing graph transform *terraform.TargetsTransformer
+2022-05-18T16:29:56.193+0100 [TRACE] Completed graph transform *terraform.TargetsTransformer (no changes)
+2022-05-18T16:29:56.193+0100 [TRACE] Executing graph transform *terraform.ForcedCBDTransformer
+2022-05-18T16:29:56.193+0100 [TRACE] Completed graph transform *terraform.ForcedCBDTransformer (no changes)
+2022-05-18T16:29:56.193+0100 [TRACE] Executing graph transform *terraform.CloseProviderTransformer
+2022-05-18T16:29:56.193+0100 [TRACE] Completed graph transform *terraform.CloseProviderTransformer (no changes)
+2022-05-18T16:29:56.193+0100 [TRACE] Executing graph transform *terraform.CloseRootModuleTransformer
+2022-05-18T16:29:56.193+0100 [TRACE] Completed graph transform *terraform.CloseRootModuleTransformer with new graph:
+  module.one (close) - *terraform.nodeCloseModule
+    module.one (expand) - *terraform.nodeExpandModule
+    module.one.output.output (expand) - *terraform.nodeExpandOutput
+    module.one.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+    module.one.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.one (expand) - *terraform.nodeExpandModule
+  module.one.output.output (expand) - *terraform.nodeExpandOutput
+    module.one (expand) - *terraform.nodeExpandModule
+    module.one.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.one.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+    module.one (expand) - *terraform.nodeExpandModule
+    module.two.output.output (expand) - *terraform.nodeExpandOutput
+  module.one.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+    module.one (expand) - *terraform.nodeExpandModule
+  module.two (close) - *terraform.nodeCloseModule
+    module.two (expand) - *terraform.nodeExpandModule
+    module.two.output.output (expand) - *terraform.nodeExpandOutput
+    module.two.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+    module.two.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.two (expand) - *terraform.nodeExpandModule
+  module.two.output.output (expand) - *terraform.nodeExpandOutput
+    module.two (expand) - *terraform.nodeExpandModule
+    module.two.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.two.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+    module.one.output.output (expand) - *terraform.nodeExpandOutput
+    module.two (expand) - *terraform.nodeExpandModule
+  module.two.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+    module.two (expand) - *terraform.nodeExpandModule
+  output.one - *terraform.NodeApplyableOutput
+    module.one.output.output (expand) - *terraform.nodeExpandOutput
+  output.two - *terraform.NodeApplyableOutput
+    module.two.output.output (expand) - *terraform.nodeExpandOutput
+  root - *terraform.nodeCloseModule
+    module.one (close) - *terraform.nodeCloseModule
+    module.two (close) - *terraform.nodeCloseModule
+    output.one - *terraform.NodeApplyableOutput
+    output.two - *terraform.NodeApplyableOutput
+  ------
+2022-05-18T16:29:56.193+0100 [TRACE] Executing graph transform *terraform.TransitiveReductionTransformer
+2022-05-18T16:29:56.193+0100 [TRACE] Completed graph transform *terraform.TransitiveReductionTransformer with new graph:
+  module.one (close) - *terraform.nodeCloseModule
+    module.one.output.output (expand) - *terraform.nodeExpandOutput
+    module.one.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+  module.one (expand) - *terraform.nodeExpandModule
+  module.one.output.output (expand) - *terraform.nodeExpandOutput
+    module.one.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.one.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+    module.one (expand) - *terraform.nodeExpandModule
+    module.two.output.output (expand) - *terraform.nodeExpandOutput
+  module.one.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+    module.one (expand) - *terraform.nodeExpandModule
+  module.two (close) - *terraform.nodeCloseModule
+    module.two.output.output (expand) - *terraform.nodeExpandOutput
+    module.two.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+  module.two (expand) - *terraform.nodeExpandModule
+  module.two.output.output (expand) - *terraform.nodeExpandOutput
+    module.two.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.two.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+    module.one.output.output (expand) - *terraform.nodeExpandOutput
+    module.two (expand) - *terraform.nodeExpandModule
+  module.two.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+    module.two (expand) - *terraform.nodeExpandModule
+  output.one - *terraform.NodeApplyableOutput
+    module.one.output.output (expand) - *terraform.nodeExpandOutput
+  output.two - *terraform.NodeApplyableOutput
+    module.two.output.output (expand) - *terraform.nodeExpandOutput
+  root - *terraform.nodeCloseModule
+    module.one (close) - *terraform.nodeCloseModule
+    module.two (close) - *terraform.nodeCloseModule
+    output.one - *terraform.NodeApplyableOutput
+    output.two - *terraform.NodeApplyableOutput
+  ------
+2022-05-18T16:29:56.193+0100 [DEBUG] Starting graph walk: walkPlan
+2022-05-18T16:29:56.193+0100 [TRACE] vertex "module.two (expand)": starting visit (*terraform.nodeExpandModule)
+2022-05-18T16:29:56.193+0100 [TRACE] vertex "module.two (expand)": visit complete
+2022-05-18T16:29:56.193+0100 [TRACE] vertex "module.two.var.input2 (expand)": starting visit (*terraform.nodeExpandModuleVariable)
+2022-05-18T16:29:56.193+0100 [TRACE] vertex "module.two.var.input2 (expand)": expanding dynamic subgraph
+2022-05-18T16:29:56.193+0100 [TRACE] vertex "module.two.var.input2 (expand)": entering dynamic subgraph
+2022-05-18T16:29:56.193+0100 [TRACE] vertex "module.one (expand)": starting visit (*terraform.nodeExpandModule)
+2022-05-18T16:29:56.193+0100 [TRACE] vertex "module.one (expand)": visit complete
+2022-05-18T16:29:56.193+0100 [TRACE] vertex "module.two.var.input2": starting visit (*terraform.nodeModuleVariable)
+2022-05-18T16:29:56.193+0100 [TRACE] vertex "module.one.var.input2 (expand)": starting visit (*terraform.nodeExpandModuleVariable)
+2022-05-18T16:29:56.193+0100 [TRACE] vertex "module.one.var.input2 (expand)": expanding dynamic subgraph
+2022-05-18T16:29:56.193+0100 [TRACE] vertex "module.one.var.input2 (expand)": entering dynamic subgraph
+2022-05-18T16:29:56.193+0100 [TRACE] vertex "module.one.var.input2": starting visit (*terraform.nodeModuleVariable)
+2022-05-18T16:29:56.193+0100 [TRACE] evalVariableValidations: not active for module.two.var.input2, so skipping
+2022-05-18T16:29:56.193+0100 [TRACE] evalVariableValidations: not active for module.one.var.input2, so skipping
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "module.one.var.input2": visit complete
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "module.one.var.input2 (expand)": dynamic subgraph completed successfully
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "module.one.var.input2 (expand)": visit complete
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "module.one.output.output (expand)": starting visit (*terraform.nodeExpandOutput)
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "module.one.output.output (expand)": expanding dynamic subgraph
+2022-05-18T16:29:56.194+0100 [TRACE] Expanding output: adding module.one.output.output as *terraform.NodeApplyableOutput
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "module.one.output.output (expand)": entering dynamic subgraph
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "module.one.output.output": starting visit (*terraform.NodeApplyableOutput)
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "module.two.var.input2": visit complete
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "module.two.var.input2 (expand)": dynamic subgraph completed successfully
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "module.two.var.input2 (expand)": visit complete
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "module.two.output.output (expand)": starting visit (*terraform.nodeExpandOutput)
+2022-05-18T16:29:56.194+0100 [TRACE] setValue: Saving Create change for module.one.output.output in changeset
+2022-05-18T16:29:56.194+0100 [TRACE] setValue: Saving value for module.one.output.output in state
+2022-05-18T16:29:56.194+0100 [TRACE] setValue: Saving Create change for module.one.output.output in changeset
+2022-05-18T16:29:56.194+0100 [TRACE] setValue: Saving value for module.one.output.output in state
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "module.one.output.output": visit complete
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "module.one.output.output (expand)": dynamic subgraph completed successfully
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "module.one.output.output (expand)": visit complete
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "output.one": starting visit (*terraform.NodeApplyableOutput)
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "module.two.var.input1 (expand)": starting visit (*terraform.nodeExpandModuleVariable)
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "module.two.var.input1 (expand)": expanding dynamic subgraph
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "module.two.var.input1 (expand)": entering dynamic subgraph
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "module.two.output.output (expand)": expanding dynamic subgraph
+2022-05-18T16:29:56.194+0100 [TRACE] Expanding output: adding module.two.output.output as *terraform.NodeApplyableOutput
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "module.two.output.output (expand)": entering dynamic subgraph
+2022-05-18T16:29:56.194+0100 [TRACE] setValue: Saving Create change for output.one in changeset
+2022-05-18T16:29:56.194+0100 [TRACE] setValue: Saving value for output.one in state
+2022-05-18T16:29:56.194+0100 [TRACE] setValue: Saving Create change for output.one in changeset
+2022-05-18T16:29:56.194+0100 [TRACE] setValue: Saving value for output.one in state
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "output.one": visit complete
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "module.two.var.input1": starting visit (*terraform.nodeModuleVariable)
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "module.two.output.output": starting visit (*terraform.NodeApplyableOutput)
+2022-05-18T16:29:56.194+0100 [TRACE] evalVariableValidations: not active for module.two.var.input1, so skipping
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "module.two.var.input1": visit complete
+2022-05-18T16:29:56.194+0100 [TRACE] setValue: Saving Create change for module.two.output.output in changeset
+2022-05-18T16:29:56.194+0100 [TRACE] setValue: Saving value for module.two.output.output in state
+2022-05-18T16:29:56.194+0100 [TRACE] setValue: Saving Create change for module.two.output.output in changeset
+2022-05-18T16:29:56.194+0100 [TRACE] setValue: Saving value for module.two.output.output in state
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "module.two.output.output": visit complete
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "module.two.output.output (expand)": dynamic subgraph completed successfully
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "module.two.output.output (expand)": visit complete
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "output.two": starting visit (*terraform.NodeApplyableOutput)
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "module.two.var.input1 (expand)": dynamic subgraph completed successfully
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "module.two.var.input1 (expand)": visit complete
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "module.two (close)": starting visit (*terraform.nodeCloseModule)
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "module.two (close)": visit complete
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "module.one.var.input1 (expand)": starting visit (*terraform.nodeExpandModuleVariable)
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "module.one.var.input1 (expand)": expanding dynamic subgraph
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "module.one.var.input1 (expand)": entering dynamic subgraph
+2022-05-18T16:29:56.194+0100 [TRACE] setValue: Saving Create change for output.two in changeset
+2022-05-18T16:29:56.194+0100 [TRACE] setValue: Saving value for output.two in state
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "module.one.var.input1": starting visit (*terraform.nodeModuleVariable)
+2022-05-18T16:29:56.194+0100 [TRACE] setValue: Saving Create change for output.two in changeset
+2022-05-18T16:29:56.194+0100 [TRACE] setValue: Saving value for output.two in state
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "output.two": visit complete
+2022-05-18T16:29:56.194+0100 [TRACE] evalVariableValidations: not active for module.one.var.input1, so skipping
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "module.one.var.input1": visit complete
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "module.one.var.input1 (expand)": dynamic subgraph completed successfully
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "module.one.var.input1 (expand)": visit complete
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "module.one (close)": starting visit (*terraform.nodeCloseModule)
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "module.one (close)": visit complete
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "root": starting visit (*terraform.nodeCloseModule)
+2022-05-18T16:29:56.194+0100 [TRACE] vertex "root": visit complete
+2022-05-18T16:29:56.194+0100 [INFO]  backend/local: apply calling Apply
+2022-05-18T16:29:56.194+0100 [DEBUG] Building and walking apply graph for NormalMode plan
+2022-05-18T16:29:56.194+0100 [TRACE] Executing graph transform *terraform.ConfigTransformer
+2022-05-18T16:29:56.194+0100 [TRACE] ConfigTransformer: Starting for path:
+2022-05-18T16:29:56.194+0100 [TRACE] ConfigTransformer: Starting for path: module.two
+2022-05-18T16:29:56.194+0100 [TRACE] ConfigTransformer: Starting for path: module.one
+2022-05-18T16:29:56.194+0100 [TRACE] Completed graph transform *terraform.ConfigTransformer (no changes)
+2022-05-18T16:29:56.194+0100 [TRACE] Executing graph transform *terraform.RootVariableTransformer
+2022-05-18T16:29:56.194+0100 [TRACE] Completed graph transform *terraform.RootVariableTransformer (no changes)
+2022-05-18T16:29:56.194+0100 [TRACE] Executing graph transform *terraform.ModuleVariableTransformer
+2022-05-18T16:29:56.194+0100 [TRACE] Completed graph transform *terraform.ModuleVariableTransformer with new graph:
+  module.one.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+  module.one.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.two.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+  module.two.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  ------
+2022-05-18T16:29:56.194+0100 [TRACE] Executing graph transform *terraform.LocalTransformer
+2022-05-18T16:29:56.194+0100 [TRACE] Completed graph transform *terraform.LocalTransformer (no changes)
+2022-05-18T16:29:56.194+0100 [TRACE] Executing graph transform *terraform.OutputTransformer
+2022-05-18T16:29:56.194+0100 [TRACE] OutputTransformer: adding output as *terraform.nodeExpandOutput
+2022-05-18T16:29:56.194+0100 [TRACE] OutputTransformer: adding output as *terraform.nodeExpandOutput
+2022-05-18T16:29:56.194+0100 [TRACE] OutputTransformer: adding one as *terraform.NodeApplyableOutput
+2022-05-18T16:29:56.194+0100 [TRACE] OutputTransformer: adding two as *terraform.NodeApplyableOutput
+2022-05-18T16:29:56.194+0100 [TRACE] Completed graph transform *terraform.OutputTransformer with new graph:
+  module.one.output.output (expand) - *terraform.nodeExpandOutput
+  module.one.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+  module.one.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.two.output.output (expand) - *terraform.nodeExpandOutput
+  module.two.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+  module.two.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  output.one - *terraform.NodeApplyableOutput
+  output.two - *terraform.NodeApplyableOutput
+  ------
+2022-05-18T16:29:56.194+0100 [TRACE] Executing graph transform *terraform.DiffTransformer
+2022-05-18T16:29:56.194+0100 [TRACE] Completed graph transform *terraform.DiffTransformer (no changes)
+2022-05-18T16:29:56.194+0100 [TRACE] Executing graph transform *terraform.AttachStateTransformer
+2022-05-18T16:29:56.194+0100 [TRACE] Completed graph transform *terraform.AttachStateTransformer (no changes)
+2022-05-18T16:29:56.194+0100 [TRACE] Executing graph transform *terraform.OrphanOutputTransformer
+2022-05-18T16:29:56.194+0100 [TRACE] Completed graph transform *terraform.OrphanOutputTransformer (no changes)
+2022-05-18T16:29:56.194+0100 [TRACE] Executing graph transform *terraform.AttachResourceConfigTransformer
+2022-05-18T16:29:56.194+0100 [TRACE] Completed graph transform *terraform.AttachResourceConfigTransformer (no changes)
+2022-05-18T16:29:56.194+0100 [TRACE] Executing graph transform *terraform.graphTransformerMulti
+2022-05-18T16:29:56.194+0100 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.ProviderConfigTransformer
+2022-05-18T16:29:56.194+0100 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.ProviderConfigTransformer with new graph:
+  module.one.output.output (expand) - *terraform.nodeExpandOutput
+  module.one.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+  module.one.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.two.output.output (expand) - *terraform.nodeExpandOutput
+  module.two.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+  module.two.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  output.one - *terraform.NodeApplyableOutput
+  output.two - *terraform.NodeApplyableOutput
+  ------
+2022-05-18T16:29:56.194+0100 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.MissingProviderTransformer
+2022-05-18T16:29:56.194+0100 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.MissingProviderTransformer (no changes)
+2022-05-18T16:29:56.194+0100 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.ProviderTransformer
+2022-05-18T16:29:56.194+0100 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.ProviderTransformer (no changes)
+2022-05-18T16:29:56.194+0100 [TRACE] (graphTransformerMulti) Executing graph transform *terraform.PruneProviderTransformer
+2022-05-18T16:29:56.194+0100 [TRACE] (graphTransformerMulti) Completed graph transform *terraform.PruneProviderTransformer (no changes)
+2022-05-18T16:29:56.194+0100 [TRACE] Completed graph transform *terraform.graphTransformerMulti (no changes)
+2022-05-18T16:29:56.194+0100 [TRACE] Executing graph transform *terraform.RemovedModuleTransformer
+2022-05-18T16:29:56.194+0100 [TRACE] Completed graph transform *terraform.RemovedModuleTransformer (no changes)
+2022-05-18T16:29:56.194+0100 [TRACE] Executing graph transform *terraform.AttachSchemaTransformer
+2022-05-18T16:29:56.194+0100 [TRACE] Completed graph transform *terraform.AttachSchemaTransformer (no changes)
+2022-05-18T16:29:56.194+0100 [TRACE] Executing graph transform *terraform.ModuleExpansionTransformer
+2022-05-18T16:29:56.194+0100 [TRACE] ModuleExpansionTransformer: Added module.one as *terraform.nodeExpandModule
+2022-05-18T16:29:56.194+0100 [TRACE] ModuleExpansionTransformer: module.one.var.input2 (expand) must wait for expansion of module.one
+2022-05-18T16:29:56.194+0100 [TRACE] ModuleExpansionTransformer: module.one.output.output (expand) must wait for expansion of module.one
+2022-05-18T16:29:56.194+0100 [TRACE] ModuleExpansionTransformer: module.one (close) must wait for expansion of module.one
+2022-05-18T16:29:56.194+0100 [TRACE] ModuleExpansionTransformer: module.one.var.input1 (expand) must wait for expansion of module.one
+2022-05-18T16:29:56.194+0100 [TRACE] ModuleExpansionTransformer: Added module.two as *terraform.nodeExpandModule
+2022-05-18T16:29:56.194+0100 [TRACE] ModuleExpansionTransformer: module.two (close) must wait for expansion of module.two
+2022-05-18T16:29:56.194+0100 [TRACE] ModuleExpansionTransformer: module.two.var.input1 (expand) must wait for expansion of module.two
+2022-05-18T16:29:56.194+0100 [TRACE] ModuleExpansionTransformer: module.two.var.input2 (expand) must wait for expansion of module.two
+2022-05-18T16:29:56.194+0100 [TRACE] ModuleExpansionTransformer: module.two.output.output (expand) must wait for expansion of module.two
+2022-05-18T16:29:56.194+0100 [TRACE] Completed graph transform *terraform.ModuleExpansionTransformer with new graph:
+  module.one (close) - *terraform.nodeCloseModule
+    module.one (expand) - *terraform.nodeExpandModule
+    module.one.output.output (expand) - *terraform.nodeExpandOutput
+    module.one.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+    module.one.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.one (expand) - *terraform.nodeExpandModule
+  module.one.output.output (expand) - *terraform.nodeExpandOutput
+    module.one (expand) - *terraform.nodeExpandModule
+  module.one.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+    module.one (expand) - *terraform.nodeExpandModule
+  module.one.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+    module.one (expand) - *terraform.nodeExpandModule
+  module.two (close) - *terraform.nodeCloseModule
+    module.two (expand) - *terraform.nodeExpandModule
+    module.two.output.output (expand) - *terraform.nodeExpandOutput
+    module.two.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+    module.two.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.two (expand) - *terraform.nodeExpandModule
+  module.two.output.output (expand) - *terraform.nodeExpandOutput
+    module.two (expand) - *terraform.nodeExpandModule
+  module.two.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+    module.two (expand) - *terraform.nodeExpandModule
+  module.two.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+    module.two (expand) - *terraform.nodeExpandModule
+  output.one - *terraform.NodeApplyableOutput
+  output.two - *terraform.NodeApplyableOutput
+  ------
+2022-05-18T16:29:56.194+0100 [TRACE] Executing graph transform *terraform.ReferenceTransformer
+2022-05-18T16:29:56.194+0100 [DEBUG] ReferenceTransformer: "module.one.output.output (expand)" references: [module.one.var.input2 (expand)]
+2022-05-18T16:29:56.194+0100 [DEBUG] ReferenceTransformer: "output.two" references: [module.two.output.output (expand)]
+2022-05-18T16:29:56.194+0100 [DEBUG] ReferenceTransformer: "module.one (close)" references: []
+2022-05-18T16:29:56.194+0100 [DEBUG] ReferenceTransformer: "module.two (expand)" references: []
+2022-05-18T16:29:56.194+0100 [DEBUG] ReferenceTransformer: "module.one.var.input2 (expand)" references: []
+2022-05-18T16:29:56.194+0100 [DEBUG] ReferenceTransformer: "module.two.var.input1 (expand)" references: [module.one.output.output (expand)]
+2022-05-18T16:29:56.194+0100 [DEBUG] ReferenceTransformer: "module.two.var.input2 (expand)" references: []
+2022-05-18T16:29:56.194+0100 [DEBUG] ReferenceTransformer: "module.two.output.output (expand)" references: [module.two.var.input2 (expand)]
+2022-05-18T16:29:56.194+0100 [DEBUG] ReferenceTransformer: "output.one" references: [module.one.output.output (expand)]
+2022-05-18T16:29:56.194+0100 [DEBUG] ReferenceTransformer: "module.one (expand)" references: []
+2022-05-18T16:29:56.194+0100 [DEBUG] ReferenceTransformer: "module.two (close)" references: []
+2022-05-18T16:29:56.194+0100 [DEBUG] ReferenceTransformer: "module.one.var.input1 (expand)" references: [module.two.output.output (expand)]
+2022-05-18T16:29:56.194+0100 [TRACE] Completed graph transform *terraform.ReferenceTransformer with new graph:
+  module.one (close) - *terraform.nodeCloseModule
+    module.one (expand) - *terraform.nodeExpandModule
+    module.one.output.output (expand) - *terraform.nodeExpandOutput
+    module.one.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+    module.one.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.one (expand) - *terraform.nodeExpandModule
+  module.one.output.output (expand) - *terraform.nodeExpandOutput
+    module.one (expand) - *terraform.nodeExpandModule
+    module.one.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.one.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+    module.one (expand) - *terraform.nodeExpandModule
+    module.two.output.output (expand) - *terraform.nodeExpandOutput
+  module.one.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+    module.one (expand) - *terraform.nodeExpandModule
+  module.two (close) - *terraform.nodeCloseModule
+    module.two (expand) - *terraform.nodeExpandModule
+    module.two.output.output (expand) - *terraform.nodeExpandOutput
+    module.two.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+    module.two.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.two (expand) - *terraform.nodeExpandModule
+  module.two.output.output (expand) - *terraform.nodeExpandOutput
+    module.two (expand) - *terraform.nodeExpandModule
+    module.two.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.two.var.input1 (expand) - *terraform.nodeExpandModuleVariable
+    module.one.output.output (expand) - *terraform.nodeExpandOutput
+    module.two (expand) - *terraform.nodeExpandModule
+  module.two.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+    module.two (expand) - *terraform.nodeExpandModule
+  output.one - *terraform.NodeApplyableOutput
+    module.one.output.output (expand) - *terraform.nodeExpandOutput
+  output.two - *terraform.NodeApplyableOutput
+    module.two.output.output (expand) - *terraform.nodeExpandOutput
+  ------
+2022-05-18T16:29:56.194+0100 [TRACE] Executing graph transform *terraform.AttachDependenciesTransformer
+2022-05-18T16:29:56.194+0100 [TRACE] Completed graph transform *terraform.AttachDependenciesTransformer (no changes)
+2022-05-18T16:29:56.194+0100 [TRACE] Executing graph transform *terraform.ForcedCBDTransformer
+2022-05-18T16:29:56.194+0100 [TRACE] Completed graph transform *terraform.ForcedCBDTransformer (no changes)
+2022-05-18T16:29:56.194+0100 [TRACE] Executing graph transform *terraform.DestroyEdgeTransformer
+2022-05-18T16:29:56.194+0100 [TRACE] Completed graph transform *terraform.DestroyEdgeTransformer (no changes)
+2022-05-18T16:29:56.194+0100 [TRACE] Executing graph transform *terraform.CBDEdgeTransformer
+2022-05-18T16:29:56.194+0100 [TRACE] Completed graph transform *terraform.CBDEdgeTransformer (no changes)
+2022-05-18T16:29:56.194+0100 [TRACE] Executing graph transform *terraform.pruneUnusedNodesTransformer
+2022-05-18T16:29:56.194+0100 [DEBUG] pruneUnusedNodes: module.two.var.input1 (expand) is no longer needed, removing
+2022-05-18T16:29:56.194+0100 [DEBUG] pruneUnusedNodes: module.one.var.input1 (expand) is no longer needed, removing
+2022-05-18T16:29:56.194+0100 [TRACE] Completed graph transform *terraform.pruneUnusedNodesTransformer with new graph:
+  module.one (close) - *terraform.nodeCloseModule
+    module.one (expand) - *terraform.nodeExpandModule
+    module.one.output.output (expand) - *terraform.nodeExpandOutput
+    module.one.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.one (expand) - *terraform.nodeExpandModule
+  module.one.output.output (expand) - *terraform.nodeExpandOutput
+    module.one (expand) - *terraform.nodeExpandModule
+    module.one.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.one.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+    module.one (expand) - *terraform.nodeExpandModule
+  module.two (close) - *terraform.nodeCloseModule
+    module.two (expand) - *terraform.nodeExpandModule
+    module.two.output.output (expand) - *terraform.nodeExpandOutput
+    module.two.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.two (expand) - *terraform.nodeExpandModule
+  module.two.output.output (expand) - *terraform.nodeExpandOutput
+    module.two (expand) - *terraform.nodeExpandModule
+    module.two.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.two.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+    module.two (expand) - *terraform.nodeExpandModule
+  output.one - *terraform.NodeApplyableOutput
+    module.one.output.output (expand) - *terraform.nodeExpandOutput
+  output.two - *terraform.NodeApplyableOutput
+    module.two.output.output (expand) - *terraform.nodeExpandOutput
+  ------
+2022-05-18T16:29:56.194+0100 [TRACE] Executing graph transform *terraform.TargetsTransformer
+2022-05-18T16:29:56.195+0100 [TRACE] Completed graph transform *terraform.TargetsTransformer (no changes)
+2022-05-18T16:29:56.195+0100 [TRACE] Executing graph transform *terraform.CloseProviderTransformer
+2022-05-18T16:29:56.195+0100 [TRACE] Completed graph transform *terraform.CloseProviderTransformer (no changes)
+2022-05-18T16:29:56.195+0100 [TRACE] Executing graph transform *terraform.CloseRootModuleTransformer
+2022-05-18T16:29:56.195+0100 [TRACE] Completed graph transform *terraform.CloseRootModuleTransformer with new graph:
+  module.one (close) - *terraform.nodeCloseModule
+    module.one (expand) - *terraform.nodeExpandModule
+    module.one.output.output (expand) - *terraform.nodeExpandOutput
+    module.one.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.one (expand) - *terraform.nodeExpandModule
+  module.one.output.output (expand) - *terraform.nodeExpandOutput
+    module.one (expand) - *terraform.nodeExpandModule
+    module.one.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.one.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+    module.one (expand) - *terraform.nodeExpandModule
+  module.two (close) - *terraform.nodeCloseModule
+    module.two (expand) - *terraform.nodeExpandModule
+    module.two.output.output (expand) - *terraform.nodeExpandOutput
+    module.two.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.two (expand) - *terraform.nodeExpandModule
+  module.two.output.output (expand) - *terraform.nodeExpandOutput
+    module.two (expand) - *terraform.nodeExpandModule
+    module.two.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.two.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+    module.two (expand) - *terraform.nodeExpandModule
+  output.one - *terraform.NodeApplyableOutput
+    module.one.output.output (expand) - *terraform.nodeExpandOutput
+  output.two - *terraform.NodeApplyableOutput
+    module.two.output.output (expand) - *terraform.nodeExpandOutput
+  root - *terraform.nodeCloseModule
+    module.one (close) - *terraform.nodeCloseModule
+    module.two (close) - *terraform.nodeCloseModule
+    output.one - *terraform.NodeApplyableOutput
+    output.two - *terraform.NodeApplyableOutput
+  ------
+2022-05-18T16:29:56.195+0100 [TRACE] Executing graph transform *terraform.TransitiveReductionTransformer
+2022-05-18T16:29:56.195+0100 [TRACE] Completed graph transform *terraform.TransitiveReductionTransformer with new graph:
+  module.one (close) - *terraform.nodeCloseModule
+    module.one.output.output (expand) - *terraform.nodeExpandOutput
+  module.one (expand) - *terraform.nodeExpandModule
+  module.one.output.output (expand) - *terraform.nodeExpandOutput
+    module.one.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.one.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+    module.one (expand) - *terraform.nodeExpandModule
+  module.two (close) - *terraform.nodeCloseModule
+    module.two.output.output (expand) - *terraform.nodeExpandOutput
+  module.two (expand) - *terraform.nodeExpandModule
+  module.two.output.output (expand) - *terraform.nodeExpandOutput
+    module.two.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+  module.two.var.input2 (expand) - *terraform.nodeExpandModuleVariable
+    module.two (expand) - *terraform.nodeExpandModule
+  output.one - *terraform.NodeApplyableOutput
+    module.one.output.output (expand) - *terraform.nodeExpandOutput
+  output.two - *terraform.NodeApplyableOutput
+    module.two.output.output (expand) - *terraform.nodeExpandOutput
+  root - *terraform.nodeCloseModule
+    module.one (close) - *terraform.nodeCloseModule
+    module.two (close) - *terraform.nodeCloseModule
+    output.one - *terraform.NodeApplyableOutput
+    output.two - *terraform.NodeApplyableOutput
+  ------
+2022-05-18T16:29:56.195+0100 [DEBUG] Starting graph walk: walkApply
+2022-05-18T16:29:56.195+0100 [TRACE] vertex "module.one (expand)": starting visit (*terraform.nodeExpandModule)
+2022-05-18T16:29:56.195+0100 [TRACE] vertex "module.two (expand)": starting visit (*terraform.nodeExpandModule)
+2022-05-18T16:29:56.195+0100 [TRACE] vertex "module.two (expand)": visit complete
+2022-05-18T16:29:56.195+0100 [TRACE] vertex "module.one (expand)": visit complete
+2022-05-18T16:29:56.195+0100 [TRACE] vertex "module.two.var.input2 (expand)": starting visit (*terraform.nodeExpandModuleVariable)
+2022-05-18T16:29:56.195+0100 [TRACE] vertex "module.two.var.input2 (expand)": expanding dynamic subgraph
+2022-05-18T16:29:56.195+0100 [TRACE] vertex "module.two.var.input2 (expand)": entering dynamic subgraph
+2022-05-18T16:29:56.195+0100 [TRACE] vertex "module.two.var.input2": starting visit (*terraform.nodeModuleVariable)
+2022-05-18T16:29:56.195+0100 [TRACE] vertex "module.one.var.input2 (expand)": starting visit (*terraform.nodeExpandModuleVariable)
+2022-05-18T16:29:56.195+0100 [TRACE] vertex "module.one.var.input2 (expand)": expanding dynamic subgraph
+2022-05-18T16:29:56.195+0100 [TRACE] vertex "module.one.var.input2 (expand)": entering dynamic subgraph
+2022-05-18T16:29:56.195+0100 [TRACE] vertex "module.one.var.input2": starting visit (*terraform.nodeModuleVariable)
+2022-05-18T16:29:56.195+0100 [TRACE] evalVariableValidations: not active for module.two.var.input2, so skipping
+2022-05-18T16:29:56.195+0100 [TRACE] vertex "module.two.var.input2": visit complete
+2022-05-18T16:29:56.195+0100 [TRACE] vertex "module.two.var.input2 (expand)": dynamic subgraph completed successfully
+2022-05-18T16:29:56.195+0100 [TRACE] vertex "module.two.var.input2 (expand)": visit complete
+2022-05-18T16:29:56.195+0100 [TRACE] evalVariableValidations: not active for module.one.var.input2, so skipping
+2022-05-18T16:29:56.195+0100 [TRACE] vertex "module.one.var.input2": visit complete
+2022-05-18T16:29:56.195+0100 [TRACE] vertex "module.two.output.output (expand)": starting visit (*terraform.nodeExpandOutput)
+2022-05-18T16:29:56.195+0100 [TRACE] vertex "module.two.output.output (expand)": expanding dynamic subgraph
+2022-05-18T16:29:56.195+0100 [TRACE] Expanding output: adding module.two.output.output as *terraform.NodeApplyableOutput
+2022-05-18T16:29:56.195+0100 [TRACE] vertex "module.two.output.output (expand)": entering dynamic subgraph
+2022-05-18T16:29:56.195+0100 [TRACE] vertex "module.one.var.input2 (expand)": dynamic subgraph completed successfully
+2022-05-18T16:29:56.195+0100 [TRACE] vertex "module.one.var.input2 (expand)": visit complete
+2022-05-18T16:29:56.195+0100 [TRACE] vertex "module.two.output.output": starting visit (*terraform.NodeApplyableOutput)
+2022-05-18T16:29:56.195+0100 [TRACE] vertex "module.one.output.output (expand)": starting visit (*terraform.nodeExpandOutput)
+2022-05-18T16:29:56.195+0100 [TRACE] vertex "module.one.output.output (expand)": expanding dynamic subgraph
+2022-05-18T16:29:56.195+0100 [TRACE] Expanding output: adding module.one.output.output as *terraform.NodeApplyableOutput
+2022-05-18T16:29:56.195+0100 [TRACE] vertex "module.one.output.output (expand)": entering dynamic subgraph
+2022-05-18T16:29:56.195+0100 [TRACE] vertex "module.one.output.output": starting visit (*terraform.NodeApplyableOutput)
+2022-05-18T16:29:56.195+0100 [TRACE] setValue: Saving Create change for module.one.output.output in changeset
+2022-05-18T16:29:56.195+0100 [TRACE] setValue: Saving value for module.one.output.output in state
+2022-05-18T16:29:56.195+0100 [TRACE] vertex "module.one.output.output": visit complete
+2022-05-18T16:29:56.195+0100 [TRACE] vertex "module.one.output.output (expand)": dynamic subgraph completed successfully
+2022-05-18T16:29:56.195+0100 [TRACE] vertex "module.one.output.output (expand)": visit complete
+2022-05-18T16:29:56.195+0100 [TRACE] setValue: Saving Create change for module.two.output.output in changeset
+2022-05-18T16:29:56.195+0100 [TRACE] setValue: Saving value for module.two.output.output in state
+2022-05-18T16:29:56.195+0100 [TRACE] vertex "module.two.output.output": visit complete
+2022-05-18T16:29:56.195+0100 [TRACE] vertex "module.two.output.output (expand)": dynamic subgraph completed successfully
+2022-05-18T16:29:56.195+0100 [TRACE] vertex "module.two.output.output (expand)": visit complete
+2022-05-18T16:29:56.195+0100 [TRACE] vertex "output.one": starting visit (*terraform.NodeApplyableOutput)
+2022-05-18T16:29:56.195+0100 [TRACE] setValue: Saving NoOp change for output.one in changeset
+2022-05-18T16:29:56.195+0100 [TRACE] vertex "module.one (close)": starting visit (*terraform.nodeCloseModule)
+2022-05-18T16:29:56.195+0100 [TRACE] vertex "module.one (close)": visit complete
+2022-05-18T16:29:56.195+0100 [TRACE] vertex "output.two": starting visit (*terraform.NodeApplyableOutput)
+2022-05-18T16:29:56.195+0100 [TRACE] vertex "module.two (close)": starting visit (*terraform.nodeCloseModule)
+2022-05-18T16:29:56.195+0100 [TRACE] vertex "module.two (close)": visit complete
+2022-05-18T16:29:56.195+0100 [TRACE] setValue: Saving value for output.one in state
+2022-05-18T16:29:56.195+0100 [TRACE] vertex "output.one": visit complete
+2022-05-18T16:29:56.195+0100 [TRACE] setValue: Saving NoOp change for output.two in changeset
+2022-05-18T16:29:56.195+0100 [TRACE] setValue: Saving value for output.two in state
+2022-05-18T16:29:56.195+0100 [TRACE] vertex "output.two": visit complete
+2022-05-18T16:29:56.195+0100 [TRACE] vertex "root": starting visit (*terraform.nodeCloseModule)
+2022-05-18T16:29:56.195+0100 [TRACE] vertex "root": visit complete
+2022-05-18T16:29:56.195+0100 [TRACE] statemgr.Filesystem: creating backup snapshot at terraform.tfstate.backup
+2022-05-18T16:29:56.195+0100 [TRACE] statemgr.Filesystem: state has changed since last snapshot, so incrementing serial to 5
+2022-05-18T16:29:56.195+0100 [TRACE] statemgr.Filesystem: writing snapshot at terraform.tfstate
+2022-05-18T16:29:56.230+0100 [TRACE] statemgr.Filesystem: removing lock metadata file .terraform.tfstate.lock.info
+2022-05-18T16:29:56.230+0100 [TRACE] statemgr.Filesystem: unlocking terraform.tfstate using fcntl flock
