@@ -1,14 +1,69 @@
 # What
-This project demonstrates two things:
+This project demonstrates strange or unexpected behavior when using modules with `for_each`
 
-## Modules can be invoked with apparently circular dependencies, but continue to work
-The 'working' directory contains a `main.tf` that invokes two modules. Each module is passed a parameter that gets its value from the output of the other module. This seems to be a circular dependency until we look at the modules themselves: 
-- Each module accepts two parameters:
-  - One is given a hard-coded string
-  - The other parameter is given the output of the other module
-- Each module has a single output, derived from the hard-coded input parameter
+## Modules with apparently circular dependencies can work
+We create a simple module and call it twice. Each call passes an input parameter that references the other instance of the module. Example:
 
-As long as Terraform does not treat a module as a single atomic unit, but instead considers the individual resources within them, then it can resolve dependencies.
+```
+module "one" {
+  source = "../modules/test"
+  input1 = module.two.output
+  input2 = "one"
+}
 
-## Modules can be invoked without error suddenly fail when invoked with a `for_each`
-The 'notworking' directory contains a copy of the workking `main.tf`, but each module is called with `for_each`, iterating over a single item. Aside from having to modify the references to module outputs (replacing `module.test1.output` with `module.test1["item"].output`) the logic should be the same. We should not expect this change to introduce a cycle error, but it does!
+module "two" {
+  source = "../modules/test"
+  input1 = module.one.output
+  input2 = "two"
+}
+```
+
+We appear to have a circular dependency, yet this code can work if the test module's output depends on the hard-coded string input. In other words, Terraform does not seem to treat a module as a single atomic unit, instead it appears to evaluate its components and figure out if there is a cycle error at that level.
+
+## Using `for_each` to iterate over a list still works, as long as we hard-code the reference to the other instance's output
+If we create a simple list that contains 1 item, and iterate over the list when deploying the modules, there is essentially no change. Terraform expands the list and figures out how many copies of each module it needs to create. We can still refer to the output of _the other module_, but it only works if we refer to it directly using a hard-coded iterable key. Example
+
+```
+module "one" {
+  for_each = toset(["item"])
+  source = "../modules/test"
+  input1 = module.two["item"].output
+  input2 = "one"
+}
+
+module "two" {
+  for_each = toset(["item"])
+  source = "../modules/test"
+  input1 = module.one["item"].output
+  input2 = "two"
+}
+```
+
+This shows that nothing fundamentally changes in the dependency graph when we use `for_each`. 
+
+## Referring to the output of the other module using `each.key` causes a cycle error
+If we subtly change the previous example and replace the hard-coded module output references with `each.key` references (which should resolve to the same thing), suddenly we get a cycle error. Example:
+
+```
+module "one" {
+  for_each = toset(["item"])
+  source = "../modules/test"
+  input1 = module.two[each.key].output
+  input2 = "one"
+}
+
+module "two" {
+  for_each = toset(["item"])
+  source = "../modules/test"
+  input1 = module.one[each.key].output
+  input2 = "two"
+}
+```
+
+This causes the following error:
+```
+Error: Cycle: module.two.var.input1 (expand), module.two (close), module.one.var.input1 (expand), module.one (close)
+```
+
+# Why is this a bug?
+The behavior is an unexpected gotcha that gets in the way of data-driven Terraform usage
