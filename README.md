@@ -19,10 +19,10 @@ module "two" {
 }
 ```
 
-We appear to have a circular dependency, yet this code can work if the test module's output depends on the hard-coded string input. In other words, Terraform does not seem to treat a module as a single atomic unit, instead it appears to evaluate its components and figure out if there is a cycle error at that level.
+We appear to have a circular dependency, yet this code can work if the test module's output depends on the hard-coded string input. In other words, Terraform does not seem to treat a module as a single atomic unit while working out the dependency graph. Instead it appears to evaluate module components and then work out the dependency graph with them.
 
-## Using `for_each` to iterate over a list still works, as long as we hard-code the reference to the other instance's output
-If we create a simple list that contains 1 item, and iterate over the list when deploying the modules, there is essentially no change. Terraform expands the list and figures out how many copies of each module it needs to create. We can still refer to the output of _the other module_, but it only works if we refer to it directly using a hard-coded iterable key. Example
+## Using `for_each` to iterate over a list still works, _if we hard-code the reference to the other module instance output_
+If we create a simple list that contains 1 item, and iterate over the list when deploying the modules, there is essentially no change. Terraform expands the list and figures out how many copies of each module it needs to create. We can still refer to the output of the  _other instance_ of the module, but only if we refer to it using a hard-coded reference, ie "item". Example
 
 ```
 module "one" {
@@ -40,10 +40,8 @@ module "two" {
 }
 ```
 
-This shows that nothing fundamentally changes in the dependency graph when we use `for_each`. 
-
 ## Referring to the output of the other module using `each.key` causes a cycle error
-If we subtly change the previous example and replace the hard-coded module output references with `each.key` references (which should resolve to the same thing), suddenly we get a cycle error. Example:
+If we subtly change the previous example and replace the hard-coded module output references with `each.key` (which resolves to "item"!), then suddenly we get a cycle error. Example:
 
 ```
 module "one" {

@@ -3,14 +3,14 @@ locals {
 }
 
 module "one" {
-  for_each = local.iterable
+  for_each = toset(["item"])
   source = "../modules/test"
   input1 = module.two[each.key].output
   input2 = "one"
 }
 
 module "two" {
-  for_each = local.iterable
+  for_each = toset(["item"])
   source = "../modules/test"
   input1 = module.one[each.key].output
   input2 = "two"
