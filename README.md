@@ -3,7 +3,7 @@ This project demonstrates strange Terraform behavior when iterating over data wi
 
 # What do we wish to demonstrate?
 ## Modules with apparently circular dependencies can work
-We create a simple module and call it twice. Each call passes an input parameter that references the other instance of the module. Example:
+We create a simple module and call it twice. Each call passes an input parameter that references the _other instance_ of the module. Example:
 
 ```
 module "one" {
