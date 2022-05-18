@@ -1,6 +1,7 @@
-# What
-This project demonstrates strange or unexpected behavior when using modules with `for_each`
+# What is this?
+This project demonstrates strange Terraform behavior when iterating over data with `for_each` to call modules. The behavior is an unexpected gotcha that gets in the way of data-driven Terraform usage.
 
+# What do we wish to demonstrate?
 ## Modules with apparently circular dependencies can work
 We create a simple module and call it twice. Each call passes an input parameter that references the other instance of the module. Example:
 
@@ -65,5 +66,3 @@ This causes the following error:
 Error: Cycle: module.two.var.input1 (expand), module.two (close), module.one.var.input1 (expand), module.one (close)
 ```
 
-# Why is this a bug?
-The behavior is an unexpected gotcha that gets in the way of data-driven Terraform usage
